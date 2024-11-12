@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>BLOOD BANK MANAGEMENT SYSTEM</title>
+  <meta name="description" content="Case study page of Project" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<style>
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0dbaf;
+    /* Track color */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #4cacaf;
+    /* Thumb color */
+    border-radius: 10px;
+    border: 3px solid #f0dbaf;
+    /* Creates padding around thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #4cacaf;
+    /* Darker color on hover */
+  }
+
+  .project-details__showcase-img-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    /* Adjust the width as needed */
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .project-details__showcase-img-cont {
+    display: none;
+    /* Hide images by default */
+  }
+
+  .project-details__showcase-img-cont img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Navigation arrows */
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  /* Optional: Style for arrows */
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>
+
+<body>
+  <header class="header">
+    <div class="header__content">
+      <div class="header__logo-container">
+        <div class="header__logo-img-cont">
+          <img src="./assets/img/profile-img.jpg" alt="Ram Maheshwari Logo Image" class="header__logo-img" />
+        </div>
+        <span class="header__logo-sub">Goswami Sahil</span>
+      </div>
+      <div class="header__main">
+        <ul class="header__links">
+          <li class="header__link-wrapper">
+            <a href="./index.html" class="header__link"> Home </a>
+          </li>
+          <!-- <li class="header__link-wrapper">
+            <a href="./index.html#about" class="header__link">About </a>
+          </li>
+          <li class="header__link-wrapper">
+            <a href="./index.html#projects" class="header__link">
+              Projects
+            </a>
+          </li>
+          <li class="header__link-wrapper">
+            <a href="./index.html#contact" class="header__link"> Contact </a>
+          </li> -->
+        </ul>
+        <div class="header__main-ham-menu-cont">
+          <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
+          <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close"
+            class="header__main-ham-menu-close d-none" />
+        </div>
+      </div>
+    </div>
+    <div class="header__sm-menu">
+      <div class="header__sm-menu-content">
+        <ul class="header__sm-menu-links">
+          <li class="header__sm-menu-link">
+            <a href="./index.html"> Home </a>
+          </li>
+
+          <li class="header__sm-menu-link">
+            <a href="./index.html#about"> About </a>
+          </li>
+
+          <li class="header__sm-menu-link">
+            <a href="./index.html#projects"> Projects </a>
+          </li>
+
+          <li class="header__sm-menu-link">
+            <a href="./index.html#contact"> Contact </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="project-cs-hero">
+    <div class="project-cs-hero__content">
+      <h1 class="heading-primary">BLOOD BANK MANAGEMENT SYSTEM</h1>
+      <div class="project-cs-hero__info">
+        <p class="text-primary">
+          The website is used to collect all blood donor
+          organization records and is very helpful for all
+          citizens.
+        </p>
+      </div>
+      <!-- <div class="project-cs-hero__cta">
+        <a href="#" class="btn btn--bg" target="_blank">Live Link</a>
+      </div> -->
+    </div>
+  </section>
+  <section class="project-details">
+    <div class="main-container">
+      <div class="project-details__content">
+        <div class="project-details__showcase-img-slider">
+          <div class="project-details__showcase-img-cont">
+            <img src="./assets/img/portfolio/bloodbank/blood1.png" alt="Project Image"
+              class="project-details__showcase-img" />
+          </div>
+          <div class="project-details__showcase-img-cont">
+            <img src="./assets/img/portfolio/bloodbank/blood2.png" alt="Project Image"
+              class="project-details__showcase-img" />
+          </div>
+          <div class="project-details__showcase-img-cont">
+            <img src="./assets/img/portfolio/bloodbank/blood3.png" alt="Project Image"
+              class="project-details__showcase-img" />
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="project-details__content-main">
+          <div class="project-details__desc">
+            <h3 class="project-details__content-title">Project Overview</h3>
+            <p class="project-details__desc-para">
+              This website with HTML, CSS,JavaScript ,
+              Nodejs ,MongodB.
+            </p>
+            <p class="project-details__desc-para">
+              The website is used to collect all blood donor
+              organization records and is very helpful for all
+              citizens.
+            </p>
+          </div>
+          <div class="project-details__tools-used">
+            <h3 class="project-details__content-title">Tools Used</h3>
+            <div class="skills">
+              <div class="skills__skill">HTML</div>
+              <div class="skills__skill">CSS</div>
+              <div class="skills__skill">JavaScript</div>
+              <div class="skills__skill">React</div>
+              <div class="skills__skill">MERN</div>
+            </div>
+          </div>
+          <!-- <div class="project-details__links">
+            <h3 class="project-details__content-title">See Live</h3>
+            <a href="#" class="btn btn--med btn--theme project-details__links-btn" target="_blank">Live Link</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="main-footer">
+    <div class="main-container">
+      <div class="main-footer__upper">
+        <div class="main-footer__row main-footer__row-1">
+          <h2 class="heading heading-sm main-footer__heading-sm">
+            <span>Social</span>
+          </h2>
+          <div class="main-footer__social-cont">
+            <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" />
+            </a>
+            <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" />
+            </a>
+            <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="icon" />
+            </a>
+            <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="icon" />
+            </a>
+            <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="icon" />
+            </a>
+          </div>
+        </div>
+        <div class="main-footer__row main-footer__row-2">
+          <h4 class="heading heading-sm text-lt">Goswami Sahil</h4>
+          <p class="main-footer__short-desc">
+            "Goswami Sahil is an innovative and skilled web developer with full-stack expertise. He’s detail-oriented,
+            responsive, and passionate about delivering efficient, user-focused solutions."
+          </p>
+        </div>
+      </div>
+
+      <div class="main-footer__lower">
+        &copy; Copyright 2021. Made by
+        <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">Ram Maheshwari</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./index.js"></script>
+  <script>
+    let slideIndex = 0;
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.project-details__showcase-img-cont');
+      if (index >= slides.length) slideIndex = 0;
+      if (index < 0) slideIndex = slides.length - 1;
+
+      // Hide all slides
+      slides.forEach(slide => slide.style.display = 'none');
+
+      // Show the current slide
+      slides[slideIndex].style.display = 'block';
+    }
+
+    function moveSlide(n) {
+      showSlide(slideIndex += n);
+    }
+
+    // Initialize the slider by showing the first image
+    showSlide(slideIndex);
+
+  </script>
+</body>
+
+</html>
