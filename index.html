@@ -18,12 +18,29 @@
             rel="stylesheet"
         />
 
-        <!-- Vendor CSS Files -->
+        <!-- Tailwind (CDN for now) -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
+                            heading: ['"Poppins"', 'system-ui', 'sans-serif'],
+                        },
+                        colors: {
+                            primary: '#149ddd',
+                            primaryDark: '#0f7eb0',
+                            darkBg: '#020617',
+                            darkCard: '#020617',
+                        },
+                    },
+                },
+            }
+        </script>
+
+        <!-- Vendor CSS Files (icons, animations etc. – keep as needed) -->
         <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-        <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
         <link
             href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
             rel="stylesheet"
@@ -41,463 +58,806 @@
             rel="stylesheet"
         />
 
-        <!-- Template Main CSS File -->
-        <link href="assets/css/style.css" rel="stylesheet" />
+        <!-- Remove: bootstrap.min.css + assets/css/style.css -->
     </head>
-    <style>
-        .myprofile img {
-            width: 280px;
-            /* Set a fixed width and height */
-            height: 280px;
-            border-radius: 50%;
-            /* Makes the image a circle */
-            object-fit: cover;
-            /* Ensures the image covers the circle without distortion */
-        }
-    </style>
 
-    <body>
+    <body class="bg-slate-950 text-slate-100 font-sans">
         <!-- ======= Mobile nav toggle button ======= -->
-        <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-        <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
-        <!-- ======= Header ======= -->
-        <header id="header" class="d-flex flex-column justify-content-center">
-            <nav id="navbar" class="navbar nav-menu">
-                <ul>
-                    <li>
-                        <a href="#hero" class="nav-link scrollto active"
-                            ><i class="bx bx-home"></i> <span>Home</span></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link scrollto"
-                            ><i class="bx bx-user"></i> <span>About</span></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="nav-link scrollto"
-                            ><i class="bx bx-book-content"></i>
-                            <span>Project's</span></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#services" class="nav-link scrollto"
-                            ><i class="bx bx-file-blank"></i>
-                            <span>SKILLS</span></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#footer" class="nav-link scrollto"
-                            ><i class="bx bx-envelope"></i>
-                            <span>Contact</span></a
-                        >
-                    </li>
-                </ul>
+        <button
+            type="button"
+            class="mobile-nav-toggle fixed top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/80 text-slate-200 shadow-lg lg:hidden"
+        >
+            <i class="bi bi-list text-2xl"></i>
+        </button>
+
+        <!-- ======= Header (Side Nav) ======= -->
+        <header
+            id="header"
+            class="fixed top-0 left-0 z-40 flex h-full flex-col justify-center bg-slate-950/90 px-4 py-6 backdrop-blur lg:w-20"
+        >
+            <nav
+                id="navbar"
+                class="nav-menu flex flex-col items-center gap-4 text-sm text-slate-400"
+            >
+                <a
+                    href="#hero"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                >
+                    <i class="bx bx-home text-2xl"></i>
+                    <span
+                        class="hidden text-[11px] uppercase tracking-wide lg:block"
+                        >Home</span
+                    >
+                </a>
+                <a
+                    href="#about"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                >
+                    <i class="bx bx-user text-2xl"></i>
+                    <span
+                        class="hidden text-[11px] uppercase tracking-wide lg:block"
+                        >Me</span
+                    >
+                </a>
+
+                <a
+                    href="#services"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                >
+                    <i class="bx bx-file-blank text-2xl"></i>
+                    <span
+                        class="hidden text-[11px] uppercase tracking-wide lg:block"
+                        >Skills</span
+                    >
+                </a>
+
+                <a
+                    href="#portfolio"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                >
+                    <i class="bx bx-book-content text-2xl"></i>
+                    <span
+                        class="hidden text-[11px] uppercase tracking-wide lg:block"
+                        >Project's</span
+                    >
+                </a>
+
+                <a
+                    href="#footer"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                >
+                    <i class="bx bx-envelope text-2xl"></i>
+                    <span
+                        class="hidden text-[11px] uppercase tracking-wide lg:block"
+                        >Contact</span
+                    >
+                </a>
             </nav>
-            <!-- .nav-menu -->
         </header>
         <!-- End Header -->
 
         <!-- ======= Hero Section ======= -->
-        <section id="hero" class="d-flex flex-column justify-content-center">
-            <div class="container" data-aos="zoom-in" data-aos-delay="100">
-                <h1>Sahil Goswami</h1>
-                <p>
+        <section
+            id="hero"
+            class="flex min-h-screen flex-col justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pr-4"
+        >
+            <div
+                class="container mx-auto max-w-3xl px-4"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+            >
+                <h1
+                    class="font-heading text-4xl font-bold tracking-tight sm:text-5xl"
+                >
+                    Sahil Goswami
+                </h1>
+                <p class="mt-4 text-lg text-slate-300 sm:text-xl">
                     I'm
-                    <span class="typed" data-typed-items="Web-Developer"></span>
+                    <span
+                        class="typed font-semibold text-primary"
+                        data-typed-items="Web-Developer"
+                    ></span>
                 </p>
-                <div class="social-links"></div>
+                <div class="social-links mt-6 flex gap-4">
+                    <!-- Add social icons here if needed -->
+                </div>
             </div>
         </section>
         <!-- End Hero -->
 
-        <main id="main">
+        <main id="main" class="">
             <!-- ======= About Section ======= -->
-            <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>About</h2>
+            <section
+                id="about"
+                class="relative overflow-hidden bg-slate-950 py-20"
+            >
+                <!-- subtle gradient blobs -->
+                <div
+                    class="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+                ></div>
+                <div
+                    class="pointer-events-none absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl"
+                ></div>
+
+                <div
+                    class="relative z-10 mx-auto max-w-6xl px-4"
+                    data-aos="fade-up"
+                >
+                    <!-- title -->
+                    <div class="mb-12 text-center">
+                        <p
+                            class="text-xs font-semibold uppercase tracking-[0.35em] text-primary"
+                        >
+                            About Me
+                        </p>
+                        <!-- <h2
+                            class="mt-4 inline-block bg-gradient-to-r from-slate-50 via-slate-200 to-slate-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl"
+                        >
+                            Turning ideas into reliable web experiences.
+                        </h2> -->
+                        <p class="mt-3 text-sm text-slate-400 sm:text-base">
+                            Backend-first mindset with a strong eye for clean UI
+                            and performance.
+                        </p>
                     </div>
 
-                    <div class="row">
-                        <div class="myprofile col-lg-4">
-                            <img
-                                src="assets/img/profile-img.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
+                    <!-- content card -->
+                    <div
+                        class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,23,42,0.8)] backdrop-blur md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.9fr)] md:p-10"
+                    >
+                        <!-- profile side -->
+                        <div class="flex flex-col items-center gap-5">
+                            <div
+                                class="relative flex items-center justify-center"
+                            >
+                                <div
+                                    class="absolute -inset-1 rounded-full bg-gradient-to-tr from-primary via-sky-500 to-emerald-400 opacity-70 blur"
+                                ></div>
+                                <img
+                                    src="assets/img/1.png"
+                                    alt="Profile picture of Sahil Goswami"
+                                    class="relative h-64 w-64 rounded-full border border-slate-700 object-cover shadow-2xl sm:h-72 sm:w-72"
+                                />
+                            </div>
+
+                            <div class="mt-2 text-center">
+                                <h3
+                                    class="font-heading text-2xl font-semibold text-slate-50"
+                                >
+                                    Sahil Goswami
+                                </h3>
+                                <p
+                                    class="mt-1 text-sm font-medium uppercase tracking-[0.2em] text-primary"
+                                >
+                                    Web Developer
+                                </p>
+                            </div>
+
+                            <div
+                                class="mt-3 flex flex-wrap justify-center gap-2 md:justify-start"
+                            ></div>
                         </div>
-                        <div class="col-lg-8 pt-4 pt-lg-0 content">
-                            <h3>Web Developer,</h3>
-                            <p class="fst-italic">
+
+                        <!-- text side -->
+                        <div class="content space-y-6 text-slate-200">
+                            <h3
+                                class="font-heading text-xl font-semibold text-slate-50 sm:text-2xl"
+                            >
+                                Web Developer specialising in PHP, Laravel &amp;
+                                clean backend systems.
+                            </h3>
+
+                            <p
+                                class="text-sm leading-relaxed text-slate-300 sm:text-[15px]"
+                            >
                                 Hello! I'm a dedicated Web Developer with a year
-                                of experience in crafting dynamic web
-                                applications with PHP. Proficient in Web and
-                                MySQL,particularly in PHP Also familiar with PHP
-                                frameworks such as Laravel and Yii2, I
-                                specialize in back-end development while also
-                                having a solid understanding of front-end
-                                technologies like HTML, CSS, and JavaScript.
+                                of hands-on experience crafting dynamic web
+                                applications with PHP. I work comfortably with
+                                web technologies and MySQL, and I’m especially
+                                confident in building structured, scalable
+                                back-ends.
                             </p>
-                            <p>
-                                I am committed to building responsive and
-                                user-friendly websites that enhance user
-                                engagement and satisfaction. With a strong focus
-                                on clean code and best practices, I am eager to
-                                expand my skills and contribute to innovative
-                                projects that push the boundaries of web
-                                development.
+
+                            <p
+                                class="text-sm leading-relaxed text-slate-300 sm:text-[15px]"
+                            >
+                                I have practical experience with PHP frameworks
+                                like
+                                <span class="font-semibold text-sky-300"
+                                    >Laravel</span
+                                >
+                                and
+                                <span class="font-semibold text-sky-300"
+                                    >Yii2</span
+                                >, while also understanding front-end
+                                fundamentals using HTML, CSS, and JavaScript.
+                                This balance helps me ship features that not
+                                only work well behind the scenes, but also feel
+                                smooth for users.
                             </p>
+
+                            <p
+                                class="text-sm leading-relaxed text-slate-300 sm:text-[15px]"
+                            >
+                                I care about clean code, predictable
+                                performance, and thoughtful user experience. I’m
+                                always exploring better patterns, tools, and
+                                techniques so I can contribute to projects that
+                                are reliable today and still easy to maintain
+                                tomorrow.
+                            </p>
+
+                            <!-- <div class="pt-2">
+                                <p
+                                    class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400"
+                                >
+                                    Current stack
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span
+                                        class="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium text-slate-100"
+                                    >
+                                        PHP • Laravel • Yii2
+                                    </span>
+                                    <span
+                                        class="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium text-slate-100"
+                                    >
+                                        MySQL • REST APIs
+                                    </span>
+                                    <span
+                                        class="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium text-slate-100"
+                                    >
+                                        HTML • CSS • JavaScript
+                                    </span>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ======= Portfolio Section ======= -->
-            <section id="portfolio" class="portfolio section-bg">
-                <div class="main-container">
-                    <h2 class="heading heading-sec heading-sec__mb-bg">
-                        <span class="heading-sec__main">Projects</span>
-                        <span class="heading-sec__sub">
-                            "My projects reflect innovative thinking and
-                            creative problem-solving across diverse industries.
-                            Whether pioneering technological advancements or
-                            driving impactful community initiatives, each
-                            project is carefully crafted with a focus on
-                            precision and excellence."
-                        </span>
-                    </h2>
-
-                    <div class="projects__content">
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/ecommerce/ecomme.png"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    E-COMMERCE WEBSITE
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    This project involves developing a
-                                    fully-functional E-commerce website using
-                                    the PHP Laravel framework.
-                                </p>
-                                <a
-                                    href="./project-4.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/ecommerce_laravel/myweb.png"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    E-COMMERCE WEBSITE
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    This project involves developing a
-                                    fully-functional E-commerce website using
-                                    the PHP Laravel framework.with payment
-                                    gateway.
-                                </p>
-                                <a
-                                    href="./project-5.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/taluka.jpg"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    TALUKA PANCHAYAT WEBSITE
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    The Taluka Panchayat Website is an
-                                    easy-to-use online platform that brings
-                                    various services of the Taluka Panchayat
-                                    right to your fingertips.
-                                </p>
-                                <a
-                                    href="./project-1.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/bloodbank/blood_web.jpg"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    BLOOD BANK MANAGEMENT SYSTEM
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    The website is used to collect all blood
-                                    donor organization records and is very
-                                    helpful for all citizens.
-                                </p>
-                                <a
-                                    href="./project-2.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/DAMS/DAMS.png"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    DOCTOR APPOINTMENT MANAGEMENT SYSTEM
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    The website is handle a doctor appointment
-                                    and all related to hospital.
-                                </p>
-                                <a
-                                    href="./project-5.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                        <div class="projects__row">
-                            <div class="projects__row-img-cont">
-                                <img
-                                    src="assets/img/portfolio/college/clg11.png"
-                                    alt="Software Screenshot"
-                                    class="projects__row-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div class="projects__row-content">
-                                <h3 class="projects__row-content-title">
-                                    COLLEGE WEBSITE
-                                </h3>
-                                <p class="projects__row-content-desc">
-                                    College website with HTML, CSS,PHP and
-                                    JavaScript. Students can enter UID to access
-                                    fee details, enhancing.
-                                </p>
-                                <a
-                                    href="./project-3.html"
-                                    class="btn btn--med btn--theme dynamicBgClr"
-                                    target="_blank"
-                                    >view</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Portfolio Section -->
-
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>SKILLS</h2>
+            <!-- ======= Services Section (Skills) ======= -->
+            <section id="services" class="services bg-slate-950 py-16">
+                <div
+                    class="container mx-auto max-w-5xl px-4"
+                    data-aos="fade-up"
+                >
+                    <div class="section-title mb-10 text-center">
+                        <h2
+                            class="inline-block border-b-2 border-primary pb-2 text-2xl font-semibold tracking-wide"
+                        >
+                            SKILLS
+                        </h2>
                     </div>
 
-                    <div class="row">
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         <div
-                            class="col-lg-4 col-md- d-flex align-items-stretch mt-4 mt-md-0"
+                            class="icon-box iconbox-red flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
                             data-aos="zoom-in"
                             data-aos-delay="200"
                         >
-                            <div class="icon-box iconbox-pink">
-                                <div class="icon">
-                                    <i class="bx">
-                                        <img src="assets/img/html.png" alt="" />
-                                    </i>
-                                    <i class="bx">
-                                        <img src="assets/img/css.png" alt="" />
-                                    </i>
-                                </div>
-                                <h4>HTML & CSS</h4>
-                                <p>
-                                    COMFORTABLE WITH FLEXBOX, GRID, ANIMATION
-                                    AND RESPONSIVE DESIGN
-                                </p>
+                            <div
+                                class="icon mb-4 flex items-center justify-center"
+                            >
+                                <img
+                                    src="assets/img/php.png"
+                                    alt=""
+                                    class="h-10 w-10 object-contain"
+                                />
                             </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                PHP
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                COMFORTABLE WITH
+                                <span class="text-sky-300">
+                                    PHP FRAMEWORKS (Laravel, Yii2)</span
+                                >, MAKING A DYNAMIC WEBSITE PHP
+                            </p>
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+                            class="icon-box iconbox-pink flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
                             data-aos="zoom-in"
                             data-aos-delay="200"
                         >
-                            <div class="icon-box iconbox-orange">
-                                <div class="icon">
-                                    <i class="bx">
-                                        <img
-                                            src="assets/img/javascript.png"
-                                            alt=""
-                                        />
-                                    </i>
-                                </div>
-                                <h4>JavaScript</h4>
-                                <p>
-                                    COMFORTABLE WITH OBJECT ORIENTED
-                                    PROGRAMMING, MAKING APIs USING EXPRESSJS
-                                </p>
+                            <div
+                                class="icon mb-4 flex items-center justify-center gap-3"
+                            >
+                                <img
+                                    src="assets/img/laravel.svg"
+                                    alt=""
+                                    class="h-14 w-14 object-contain"
+                                />
+                                <img
+                                    src="assets/img/yii.svg"
+                                    alt=""
+                                    class="h-8 w-8 object-contain"
+                                />
                             </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                Laravel &amp; Yii2
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                COMFORTABLE WITH FLEXBOX, GRID, ANIMATION AND
+                                RESPONSIVE DESIGN
+                            </p>
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box iconbox-blue">
-                                <div class="icon">
-                                    <i class="bx">
-                                        <img
-                                            src="assets/img/flutter.png"
-                                            alt=""
-                                        />
-                                    </i>
-                                </div>
-                                <h4>Flutter</h4>
-                                <p>
-                                    PROFICIENT IN FLUTTER AND ITS LIBRARIES,
-                                    SKILLED AT BUILDING BEAUTIFUL UIs WHERE
-                                    CREATIVITY MEETS FUNCTIONALITY.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
-                            <div class="icon-box iconbox-yellow">
-                                <div class="icon">
-                                    <i class="bx">
-                                        <img
-                                            src="assets/img/nodejs.png"
-                                            alt=""
-                                        />
-                                    </i>
-                                </div>
-                                <h4>Node JS</h4>
-                                <p>
-                                    KNOWLEDGE IN Node JS,AND NodeJS IS FUN TO
-                                    WORK WITH.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
+                            class="icon-box iconbox-pink flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
                             data-aos="zoom-in"
                             data-aos-delay="200"
                         >
-                            <div class="icon-box iconbox-red">
-                                <div class="icon">
-                                    <img src="assets/img/php.png" alt="" />
-                                </div>
-                                <h4>PHP</h4>
-                                <p>
-                                    COMFORTABLE WITH
-                                    <span style="color: rgb(118, 185, 211)">
-                                        PHP FRAMEWORKS (Laravel,Yii2)</span
-                                    >, MAKING A DYNAMIC WEBSITE PHP
-                                </p>
+                            <div
+                                class="icon mb-4 flex items-center justify-center gap-3"
+                            >
+                                <img
+                                    src="assets/img/aws.svg"
+                                    alt=""
+                                    class="h-10 w-10 object-contain"
+                                />
                             </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                AWS
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                COMFORTABLE WITH FLEXBOX, GRID, ANIMATION AND
+                                RESPONSIVE DESIGN
+                            </p>
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
+                            class="icon-box iconbox-pink flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
                             data-aos="zoom-in"
                             data-aos-delay="200"
                         >
-                            <div class="icon-box iconbox-red">
-                                <div class="icon">
-                                    <img src="assets/img/mongodb.png" alt="" />
-                                </div>
-                                <h4>MongoDB</h4>
-                                <p>KNOWLEDGE IN MongoDB & MAKING DATABASE</p>
+                            <div
+                                class="icon mb-4 flex items-center justify-center gap-3"
+                            >
+                                <img
+                                    src="assets/img/google-cloud.svg"
+                                    alt=""
+                                    class="h-8 w-8 object-contain"
+                                />
                             </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                Google Cloud
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                COMFORTABLE WITH FLEXBOX, GRID, ANIMATION AND
+                                RESPONSIVE DESIGN
+                            </p>
+                        </div>
+
+                        <div
+                            class="icon-box iconbox-pink flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
+                            data-aos="zoom-in"
+                            data-aos-delay="200"
+                        >
+                            <div
+                                class="icon mb-4 flex items-center justify-center gap-3"
+                            >
+                                <img
+                                    src="assets/img/git.svg"
+                                    alt=""
+                                    class="h-10 w-10 object-contain"
+                                />
+                                <img
+                                    src="assets/img/github-142.svg"
+                                    alt=""
+                                    class="h-10 w-10 object-contain"
+                                />
+                            </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                GIT &amp; GITHUB
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                COMFORTABLE WITH FLEXBOX, GRID, ANIMATION AND
+                                RESPONSIVE DESIGN
+                            </p>
+                        </div>
+
+                        <div
+                            class="icon-box iconbox-red flex flex-col items-center rounded-xl bg-slate-900/80 p-6 text-center shadow-lg"
+                            data-aos="zoom-in"
+                            data-aos-delay="200"
+                        >
+                            <div
+                                class="icon mb-4 flex items-center justify-center"
+                            >
+                                <img
+                                    src="assets/img/mysql.svg"
+                                    alt=""
+                                    class="h-16 w-16 object-contain"
+                                />
+                                <img
+                                    src="assets/img/nosql.svg"
+                                    alt=""
+                                    class="h-8 w-8 object-contain"
+                                />
+                            </div>
+                            <h4 class="mb-2 font-heading text-lg font-semibold">
+                                MySQL &amp; NoSQL
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                KNOWLEDGE IN MongoDB &amp; MAKING DATABASE
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- End Services Section -->
+
+            <!-- ======= Portfolio Section ======= -->
+            <section
+                id="portfolio"
+                class="relative overflow-hidden bg-slate-900/60 py-20"
+            >
+                <!-- subtle gradient blobs -->
+                <div
+                    class="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+                ></div>
+                <div
+                    class="pointer-events-none absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-sky-500/15 blur-3xl"
+                ></div>
+
+                <div
+                    class="relative z-10 main-container mx-auto max-w-7xl px-4"
+                >
+                    <!-- Section Heading -->
+                    <h2 class="mb-12 text-center">
+                        <p
+                            class="text-xs font-semibold uppercase tracking-[0.35em] text-primary"
+                        >
+                            Selected Work
+                        </p>
+                        <span
+                            class="mt-4 block font-heading text-3xl font-semibold uppercase tracking-[0.2em] text-slate-100"
+                        >
+                            Projects
+                        </span>
+                        <span
+                            class="mt-4 block text-sm leading-relaxed text-slate-300 sm:text-base"
+                        >
+                            My projects reflect practical problem-solving, clean
+                            architectures, and a focus on real-world usability —
+                            from dynamic dashboards to full-fledged platforms.
+                        </span>
+                    </h2>
+
+                    <!-- Projects Grid: 1 col mobile, 2 col small, 3 col md+ -->
+                    <div
+                        class="projects__content grid gap-8 sm:grid-cols-2 md:grid-cols-3"
+                    >
+                        <!-- Project 1 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/ecommerce/ecomme.png"
+                                    alt="E-commerce website screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    E-COMMERCE WEBSITE
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    A fully-functional E-commerce web app built
+                                    with PHP Laravel, focusing on product
+                                    management, cart flow, and a smooth checkout
+                                    experience.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        Laravel • PHP • MySQL
+                                    </p>
+                                    <a
+                                        href="./project-4.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 2 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/ecommerce_laravel/myweb.png"
+                                    alt="E-commerce Laravel website screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    E-COMMERCE WEBSITE (PAYMENT GATEWAY)
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    An advanced E-commerce platform using
+                                    Laravel with integrated payment gateway and
+                                    order flow for real-world transactions.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        Laravel • Payments
+                                    </p>
+                                    <a
+                                        href="./project-5.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 3 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/taluka.jpg"
+                                    alt="Taluka Panchayat website screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    TALUKA PANCHAYAT WEBSITE
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    A public-facing portal that centralises
+                                    Taluka Panchayat information and services,
+                                    making it easier for citizens to access
+                                    resources.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        PHP • Public Portal
+                                    </p>
+                                    <a
+                                        href="./project-1.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 4 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/bloodbank/blood_web.jpg"
+                                    alt="Blood bank management system screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    BLOOD BANK MANAGEMENT SYSTEM
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    A system to maintain donor records and
+                                    availability, simplifying the process of
+                                    finding and managing blood donations for
+                                    citizens.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        PHP • MySQL
+                                    </p>
+                                    <a
+                                        href="./project-2.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 5 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/DAMS/DAMS.png"
+                                    alt="Doctor appointment management system screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    DOCTOR APPOINTMENT MANAGEMENT SYSTEM
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    A web application to manage doctor
+                                    appointments, schedules, and related
+                                    hospital activities in a structured way.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        PHP • Scheduling
+                                    </p>
+                                    <a
+                                        href="./project-5.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 6 -->
+                        <article
+                            class="projects__row group flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-[0_0_5px_rgba(56,189,248,0.5)]"
+                        >
+                            <div
+                                class="projects__row-img-cont relative overflow-hidden rounded-xl bg-slate-900/80"
+                            >
+                                <img
+                                    src="assets/img/portfolio/college/clg11.png"
+                                    alt="College website screenshot"
+                                    class="projects__row-img h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="projects__row-content space-y-3">
+                                <h3
+                                    class="projects__row-content-title text-base font-semibold text-slate-50 sm:text-md"
+                                >
+                                    COLLEGE WEBSITE
+                                </h3>
+                                <!-- <p
+                                    class="projects__row-content-desc text-xs leading-relaxed text-slate-300 sm:text-sm"
+                                >
+                                    A college website built with HTML, CSS, PHP
+                                    and JavaScript. Students can enter their UID
+                                    to view fee details and related information.
+                                </p> -->
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2"
+                                >
+                                    <p
+                                        class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                                    >
+                                        PHP • Education
+                                    </p>
+                                    <a
+                                        href="./project-3.html"
+                                        target="_blank"
+                                        class="inline-flex items-center rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-wide text-white transition bg-primaryDark"
+                                    >
+                                        View project
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- End Portfolio Section -->
         </main>
         <!-- End #main -->
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
-            <div class="container">
-                <h3>Contact Me</h3>
-                <div class="social-links">
-                    <a href="mailto:goswamisahil1911@gmail.com" class="twitter"
-                        ><i class="bx bx-envelope"></i
-                    ></a>
+        <footer id="footer" class="bg-slate-900 py-12">
+            <div class="container mx-auto max-w-3xl px-4 text-center">
+                <h3 class="font-heading text-2xl font-semibold">Contact Me</h3>
+                <div
+                    class="social-links mt-6 flex justify-center gap-6 text-2xl"
+                >
+                    <a
+                        href="mailto:goswamisahil1911@gmail.com"
+                        class="twitter text-slate-200 transition hover:text-primary"
+                    >
+                        <i class="bx bx-envelope"></i>
+                    </a>
                     <a
                         href="https://www.linkedin.com/in/goswami-sahil/"
-                        class="linkedin"
-                        ><i class="bx bxl-linkedin"></i
-                    ></a>
+                        class="linkedin text-slate-200 transition hover:text-primary"
+                    >
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
                 </div>
 
-                <div class="credits"></div>
+                <div class="credits mt-6 text-sm text-slate-500">
+                    Created by
+                    <a href="#" class="text-primary hover:underline"
+                        >Sahil Goswami</a
+                    >
+                </div>
             </div>
         </footer>
         <!-- End Footer -->
 
-        <div id="preloader"></div>
+        <div id="preloader" class="hidden"></div>
+
         <a
             href="#"
-            class="back-to-top d-flex align-items-center justify-content-center"
-            ><i class="bi bi-arrow-up-short"></i
-        ></a>
-        <div class="credits">Created by <a href="">Sahil Goswamii</a></div>
+            class="back-to-top fixed bottom-5 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-lg transition hover:bg-primaryDark"
+        >
+            <i class="bi bi-arrow-up-short text-2xl"></i>
+        </a>
+
         <!-- Vendor JS Files -->
         <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
         <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
         <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
         <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
@@ -505,7 +865,7 @@
         <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
         <script src="assets/vendor/php-email-form/validate.js"></script>
 
-        <!-- Template Main JS File -->
+        <!-- Template Main JS File (for typed, aos, etc. – keep if needed) -->
         <script src="assets/js/main.js"></script>
     </body>
 </html>
