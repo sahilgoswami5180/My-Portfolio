@@ -139,30 +139,127 @@
         <!-- ======= Hero Section ======= -->
         <section
             id="hero"
-            class="flex min-h-screen flex-col justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pr-4"
+            class="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4"
         >
+            <!-- soft blobs -->
             <div
-                class="container mx-auto max-w-3xl px-4"
+                class="pointer-events-none absolute -left-32 top-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl"
+            ></div>
+            <div
+                class="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-emerald-500/15 blur-3xl"
+            ></div>
+
+            <div
+                class="container relative z-10 mx-auto max-w-3xl text-center"
                 data-aos="zoom-in"
                 data-aos-delay="100"
             >
-                <h1
-                    class="font-heading text-4xl font-bold tracking-tight sm:text-5xl"
+                <!-- small badge -->
+                <div
+                    class="mx-auto inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-300"
                 >
-                    Sahil Goswami
-                </h1>
-                <p class="mt-4 text-lg text-slate-300 sm:text-xl">
-                    I'm
                     <span
-                        class="typed font-semibold text-primary"
-                        data-typed-items="Web-Developer"
+                        class="h-1.5 w-1.5 rounded-full bg-emerald-400"
                     ></span>
+                    Web Developer • DevOps
+                </div>
+
+                <!-- name -->
+                <h1
+                    class="mt-5 font-heading text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl"
+                >
+                    Hi, I'm
+                    <span
+                        class="bg-gradient-to-r from-primary via-sky-400 to-emerald-300 bg-clip-text text-transparent"
+                    >
+                        Sahil&nbsp;Goswami
+                    </span>
+                </h1>
+
+                <!-- short line -->
+                <p class="mt-4 text-sm text-slate-300 sm:text-base">
+                    I build clean, reliable, and scalable web applications for
+                    real-world products and businesses.
                 </p>
-                <div class="social-links mt-6 flex gap-4">
-                    <!-- Add social icons here if needed -->
+
+                <!-- typing / console style block -->
+                <div
+                    class="mt-8 mx-auto max-w-xl rounded-2xl border border-slate-800 bg-slate-950/80 px-4 py-4 text-left shadow-[0_0_35px_rgba(15,23,42,0.9)] backdrop-blur"
+                >
+                    <div class="mb-3 flex items-center gap-1">
+                        <span
+                            class="h-2.5 w-2.5 rounded-full bg-red-500/80"
+                        ></span>
+                        <span
+                            class="h-2.5 w-2.5 rounded-full bg-amber-400/80"
+                        ></span>
+                        <span
+                            class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"
+                        ></span>
+                        <span
+                            class="ml-2 text-[10px] uppercase tracking-[0.25em] text-slate-500"
+                        >
+                            terminal
+                        </span>
+                    </div>
+                    <p class="font-mono text-[13px] text-slate-300">
+                        <span class="text-emerald-400">sahil@portfolio</span>
+                        <span class="text-slate-500">:~$</span>
+                        <span
+                            class="ml-2 typed text-primary"
+                            data-typed-items="php artisan serve,Building Laravel E-commerce,Writing clean REST APIs,Deploying apps on AWS"
+                        ></span>
+                    </p>
+                </div>
+
+                <!-- chips -->
+                <div
+                    class="mt-6 flex flex-wrap justify-center gap-2 text-[11px] text-slate-400"
+                >
+                    <span
+                        class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1"
+                    >
+                        Laravel &amp; PHP
+                    </span>
+                    <span
+                        class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1"
+                    >
+                        MySQL &amp; REST APIs
+                    </span>
+                    <span
+                        class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1"
+                    >
+                        DevOps &amp; Cloud
+                    </span>
+                </div>
+
+                <!-- CTA + scroll -->
+                <div
+                    class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+                >
+                    <a
+                        href="#portfolio"
+                        class="inline-flex items-center rounded-full bg-primary px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/30 transition hover:bg-primaryDark"
+                    >
+                        View Projects
+                    </a>
+                    <a
+                        href="#about"
+                        class="inline-flex items-center text-[11px] font-medium uppercase tracking-[0.25em] text-slate-300 hover:text-primary"
+                    >
+                        About Me
+                    </a>
+                </div>
+
+                <div
+                    class="mt-10 flex flex-col items-center gap-2 text-[11px] text-slate-500"
+                >
+                    <span>Scroll to explore</span>
+                    <span class="animate-bounce text-slate-400">⌄</span>
                 </div>
             </div>
         </section>
+
         <!-- End Hero -->
 
         <main id="main" class="">
