@@ -62,84 +62,94 @@
     </head>
 
     <body
-        class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden lg:pl-24"
+        class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden lg:pl-20"
     >
-        <!-- ======= Mobile nav toggle button ======= -->
+        <!-- Mobile nav toggle -->
         <button
+            id="nav-toggle"
             type="button"
-            class="mobile-nav-toggle fixed top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/80 text-slate-200 shadow-lg lg:hidden"
+            class="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40"
         >
-            <i class="bi bi-list text-2xl"></i>
+            <i class="bx bx-menu text-2xl"></i>
         </button>
 
-        <!-- ======= Header (Side Nav) ======= -->
+        <!-- ======= Side Header (Sidebar Nav) ======= -->
         <header
-            id="header"
-            class="fixed top-0 left-0 z-40 flex h-full flex-col justify-center bg-slate-950/90 px-4 py-6 backdrop-blur lg:w-20"
+            id="sidebar"
+            class="fixed top-0 left-0 z-40 flex h-full w-56 flex-col justify-center border-r border-slate-800 bg-slate-950/95 px-4 py-6 backdrop-blur transition-transform duration-300 -translate-x-full lg:w-20 lg:translate-x-0"
         >
             <nav
                 id="navbar"
-                class="nav-menu flex flex-col items-center gap-4 text-sm text-slate-400"
+                class="nav-menu flex flex-col items-center gap-5 text-sm text-slate-400"
             >
+                <!-- Logo -->
                 <a
                     href="index.html"
                     class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
                 >
-                    <img src="assets/img/s-1.png" alt="" />
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-700 bg-slate-900/80"
+                    >
+                        <img
+                            src="assets/img/s-1.png"
+                            alt="Sahil logo"
+                            class="h-8 w-8 object-contain"
+                        />
+                    </div>
+                    <span
+                        class="mt-1 text-[11px] font-heading font-semibold tracking-wide text-slate-200 lg:hidden"
+                    >
+                        Sahil Goswami
+                    </span>
                 </a>
 
+                <!-- Home -->
                 <a
                     href="#hero"
-                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 text-xs font-medium uppercase tracking-[0.18em] transition hover:text-primary"
                 >
                     <i class="bx bx-home text-2xl"></i>
                     <span
-                        class="hidden text-[11px] uppercase tracking-wide lg:block"
-                        >Home</span
+                        class="text-[10px] tracking-wide text-slate-400 lg:block"
                     >
+                        Home
+                    </span>
                 </a>
+
+                <!-- About -->
                 <a
                     href="#about"
-                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 text-xs font-medium uppercase tracking-[0.18em] transition hover:text-primary"
                 >
                     <i class="bx bx-user text-2xl"></i>
-                    <span
-                        class="hidden text-[11px] uppercase tracking-wide lg:block"
-                        >Me</span
-                    >
+                    <span class="text-[10px] tracking-wide">Me</span>
                 </a>
 
+                <!-- Skills -->
                 <a
                     href="#services"
-                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 text-xs font-medium uppercase tracking-[0.18em] transition hover:text-primary"
                 >
                     <i class="bx bx-file-blank text-2xl"></i>
-                    <span
-                        class="hidden text-[11px] uppercase tracking-wide lg:block"
-                        >Skills</span
-                    >
+                    <span class="text-[10px] tracking-wide">Skills</span>
                 </a>
 
+                <!-- Projects -->
                 <a
                     href="#portfolio"
-                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 text-xs font-medium uppercase tracking-[0.18em] transition hover:text-primary"
                 >
                     <i class="bx bx-book-content text-2xl"></i>
-                    <span
-                        class="hidden text-[11px] uppercase tracking-wide lg:block"
-                        >Project's</span
-                    >
+                    <span class="text-[10px] tracking-wide">Projects</span>
                 </a>
 
+                <!-- Contact -->
                 <a
                     href="#footer"
-                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 transition hover:text-primary"
+                    class="nav-link scrollto group flex flex-col items-center gap-1 rounded-full p-2 text-xs font-medium uppercase tracking-[0.18em] transition hover:text-primary"
                 >
                     <i class="bx bx-envelope text-2xl"></i>
-                    <span
-                        class="hidden text-[11px] uppercase tracking-wide lg:block"
-                        >Contact</span
-                    >
+                    <span class="text-[10px] tracking-wide">Contact</span>
                 </a>
             </nav>
         </header>
@@ -887,13 +897,6 @@
 
         <div id="preloader" class="hidden"></div>
 
-        <a
-            href="#"
-            class="back-to-top fixed bottom-5 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-lg transition hover:bg-primaryDark"
-        >
-            <i class="bi bi-arrow-up-short text-2xl"></i>
-        </a>
-
         <!-- Vendor JS Files -->
         <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
         <script src="assets/vendor/aos/aos.js"></script>
@@ -906,5 +909,59 @@
 
         <!-- Template Main JS File (for typed, aos, etc. – keep if needed) -->
         <script src="assets/js/main.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const navToggle = document.getElementById('nav-toggle')
+                const sidebar = document.getElementById('sidebar')
+
+                if (!navToggle || !sidebar) return
+
+                const navLinks = sidebar.querySelectorAll('.nav-link')
+
+                function setInitialState() {
+                    if (window.innerWidth >= 1024) {
+                        // Desktop: sidebar hamesha open, button hidden
+                        sidebar.classList.remove('-translate-x-full')
+                        sidebar.classList.add('translate-x-0')
+                        navToggle.classList.add('hidden')
+                    } else {
+                        // Mobile: sidebar hidden, button visible
+                        sidebar.classList.add('-translate-x-full')
+                        sidebar.classList.remove('translate-x-0')
+                        navToggle.classList.remove('hidden')
+                    }
+                }
+
+                // Initial load pe state set karo
+                setInitialState()
+
+                // Resize pe bhi adjust karo
+                window.addEventListener('resize', setInitialState)
+
+                navToggle.addEventListener('click', () => {
+                    const isOpen = sidebar.classList.contains('translate-x-0')
+                    if (isOpen) {
+                        sidebar.classList.add('-translate-x-full')
+                        sidebar.classList.remove('translate-x-0')
+                    } else {
+                        sidebar.classList.remove('-translate-x-full')
+                        sidebar.classList.add('translate-x-0')
+                    }
+                })
+
+                // Link click pe mobile sidebar close ho jaye
+                navLinks.forEach((link) => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth < 1024) {
+                            setTimeout(() => {
+                                sidebar.classList.add('-translate-x-full')
+                                sidebar.classList.remove('translate-x-0')
+                            }, 200)
+                        }
+                    })
+                })
+            })
+        </script>
     </body>
 </html>
