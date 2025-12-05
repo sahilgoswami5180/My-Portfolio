@@ -20,6 +20,14 @@
 
         <!-- Tailwind (CDN for now) -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* safety reset */
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
         <script>
             tailwind.config = {
                 theme: {
@@ -68,7 +76,7 @@
         <button
             id="nav-toggle"
             type="button"
-            class="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40"
+            class="fixed top-4 left-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 lg:hidden"
         >
             <i class="bx bx-menu text-2xl"></i>
         </button>
@@ -76,7 +84,7 @@
         <!-- ======= Side Header (Sidebar Nav) ======= -->
         <header
             id="sidebar"
-            class="fixed top-0 left-0 z-40 flex h-full w-56 flex-col justify-center border-r border-slate-800 bg-slate-950/95 px-4 py-6 backdrop-blur transition-transform duration-300 -translate-x-full lg:w-20 lg:translate-x-0"
+            class="fixed top-0 left-0 z-40 flex h-full w-56 max-w-[70%] flex-col justify-center border-r border-slate-800 bg-slate-950/95 px-4 py-6 backdrop-blur transition-transform duration-300 -translate-x-full lg:w-20 lg:translate-x-0"
         >
             <nav
                 id="navbar"
@@ -921,22 +929,17 @@
 
                 function setInitialState() {
                     if (window.innerWidth >= 1024) {
-                        // Desktop: sidebar hamesha open, button hidden
+                        // Desktop: sidebar open
                         sidebar.classList.remove('-translate-x-full')
                         sidebar.classList.add('translate-x-0')
-                        navToggle.classList.add('hidden')
                     } else {
-                        // Mobile: sidebar hidden, button visible
+                        // Mobile: sidebar hidden
                         sidebar.classList.add('-translate-x-full')
                         sidebar.classList.remove('translate-x-0')
-                        navToggle.classList.remove('hidden')
                     }
                 }
 
-                // Initial load pe state set karo
                 setInitialState()
-
-                // Resize pe bhi adjust karo
                 window.addEventListener('resize', setInitialState)
 
                 navToggle.addEventListener('click', () => {
@@ -950,7 +953,6 @@
                     }
                 })
 
-                // Link click pe mobile sidebar close ho jaye
                 navLinks.forEach((link) => {
                     link.addEventListener('click', () => {
                         if (window.innerWidth < 1024) {
