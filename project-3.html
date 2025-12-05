@@ -1,284 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>COLLEGE WEBSITE</title>
+        <meta name="description" content="Case study page of Project" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>COLLEGE WEBSITE</title>
-  <meta name="description" content="Case study page of Project" />
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:400,500,600,700&display=swap"
+            rel="stylesheet"
+        />
 
-  <link rel="stylesheet" href="css/style.css" />
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
+                            heading: ['"Poppins"', 'system-ui', 'sans-serif'],
+                        },
+                        colors: {
+                            primary: '#149ddd',
+                            primaryDark: '#0f7eb0',
+                            darkBg: '#020617',
+                        },
+                    },
+                },
+            }
+        </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-    rel="stylesheet" />
-</head>
-<style>
-  /* Custom Scrollbar Styling */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
+        <style>
+            /* Custom Scrollbar Styling */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #0f172a;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #149ddd;
+                border-radius: 10px;
+                border: 3px solid #0f172a;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #0f7eb0;
+            }
 
-  ::-webkit-scrollbar-track {
-    background: #f0dbaf;
-    /* Track color */
-  }
+            /* Slider: hide all slides by default */
+            .project-details__showcase-img-cont {
+                display: none;
+            }
+        </style>
+    </head>
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #4cacaf;
-    /* Thumb color */
-    border-radius: 10px;
-    border: 3px solid #f0dbaf;
-    /* Creates padding around thumb */
-  }
+    <body class="bg-slate-950 text-slate-100 font-sans">
+        <!-- Header -->
+        <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+            <div
+                class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4"
+            >
+                <!-- Logo + Name -->
+                <div class="flex items-center gap-3">
+                    <div
+                        class="h-10 w-10 overflow-hidden rounded-full border border-slate-700"
+                    >
+                        <img
+                            src="./assets/img/profile-img.jpg"
+                            alt="Goswami Sahil"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="font-heading text-sm font-semibold tracking-wide text-slate-100"
+                        >
+                            Goswami Sahil
+                        </p>
+                        <p class="text-xs text-slate-400">Web Developer</p>
+                    </div>
+                </div>
 
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #4cacaf;
-    /* Darker color on hover */
-  }
+                <!-- Desktop Nav -->
+                <nav
+                    class="hidden items-center gap-6 text-sm text-slate-300 sm:flex"
+                >
+                    <a href="./index.html" class="hover:text-primary transition"
+                        >Home</a
+                    >
+                </nav>
 
-  .project-details__showcase-img-slider {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    /* Adjust the width as needed */
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .project-details__showcase-img-cont {
-    display: none;
-    /* Hide images by default */
-  }
-
-  .project-details__showcase-img-cont img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Navigation arrows */
-  button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-  }
-
-  .prev {
-    left: 10px;
-  }
-
-  .next {
-    right: 10px;
-  }
-
-  /* Optional: Style for arrows */
-  button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-</style>
-
-<body>
-  <header class="header">
-    <div class="header__content">
-      <div class="header__logo-container">
-        <div class="header__logo-img-cont">
-          <img src="./assets/img/profile-img.jpg" alt="Ram Maheshwari Logo Image" class="header__logo-img" />
-        </div>
-        <span class="header__logo-sub">Goswami Sahil</span>
-      </div>
-      <div class="header__main">
-        <ul class="header__links">
-          <li class="header__link-wrapper">
-            <a href="./index.html" class="header__link"> Home </a>
-          </li>
-          <!-- <li class="header__link-wrapper">
-            <a href="./index.html#about" class="header__link">About </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./index.html#projects" class="header__link">
-              Projects
-            </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./index.html#contact" class="header__link"> Contact </a>
-          </li> -->
-        </ul>
-        <div class="header__main-ham-menu-cont">
-          <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
-          <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close"
-            class="header__main-ham-menu-close d-none" />
-        </div>
-      </div>
-    </div>
-    <div class="header__sm-menu">
-      <div class="header__sm-menu-content">
-        <ul class="header__sm-menu-links">
-          <li class="header__sm-menu-link">
-            <a href="./index.html"> Home </a>
-          </li>
-
-          <li class="header__sm-menu-link">
-            <a href="./index.html#about"> About </a>
-          </li>
-
-          <li class="header__sm-menu-link">
-            <a href="./index.html#projects"> Projects </a>
-          </li>
-
-          <li class="header__sm-menu-link">
-            <a href="./index.html#contact"> Contact </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <section class="project-cs-hero">
-    <div class="project-cs-hero__content">
-      <h1 class="heading-primary">COLLEGE WEBSITE</h1>
-      <div class="project-cs-hero__info">
-        <p class="text-primary">
-          College website with HTML, CSS,PHP and
-          JavaScript.
-          Students can enter UID to access fee details,
-          enhancing.
-        </p>
-      </div>
-      <div class="project-cs-hero__cta">
-        <a href="https://sahilgoswami5180.github.io/my_college/" class="btn btn--bg" target="_blank">Live Link</a>
-      </div>
-    </div>
-  </section>
-  <section class="project-details">
-    <div class="main-container">
-      <div class="project-details__content">
-        <div class="project-details__showcase-img-slider">
-          <div class="project-details__showcase-img-cont">
-            <img src="./assets/img/portfolio/college/clg11.png" alt="Project Image"
-              class="project-details__showcase-img" />
-          </div>
-          <div class="project-details__showcase-img-cont">
-            <img src="./assets/img/portfolio/college/clg2.png" alt="Project Image"
-              class="project-details__showcase-img" />
-          </div>
-          <div class="project-details__showcase-img-cont">
-            <img src="./assets/img/portfolio/college/clg3.png" alt="Project Image"
-              class="project-details__showcase-img" />
-          </div>
-
-          <!-- Navigation Arrows -->
-          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-          <button class="next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-
-        <div class="project-details__content-main">
-          <div class="project-details__desc">
-            <h3 class="project-details__content-title">Project Overview</h3>
-            <p class="project-details__desc-para">
-              College website with HTML, CSS,PHP and
-              JavaScript.
-              Students can enter UID to access fee details,
-              enhancing.
-              Students can enter UID to access fee details,
-              enhancing.
-            </p>
-            <!-- <p class="project-details__desc-para">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-              alias tenetur minus quaerat aliquid, aut provident blanditiis,
-              deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae
-              mollitia laborum corrupti ullam rem?
-            </p> -->
-          </div>
-          <div class="project-details__tools-used">
-            <h3 class="project-details__content-title">Tools Used</h3>
-            <div class="skills">
-              <div class="skills__skill">HTML</div>
-              <div class="skills__skill">CSS</div>
-              <div class="skills__skill">JavaScript</div>
+                <!-- Mobile Home Link -->
+                <a
+                    href="./index.html"
+                    class="inline-flex items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-200 sm:hidden"
+                >
+                    Home
+                </a>
             </div>
-          </div>
-          <div class="project-details__links">
-            <h3 class="project-details__content-title">See Live</h3>
-            <a href="https://sahilgoswami5180.github.io/my_college/"
-              class="btn btn--med btn--theme project-details__links-btn" target="_blank">Live Link</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="main-footer">
-    <div class="main-container">
-      <div class="main-footer__upper">
-        <div class="main-footer__row main-footer__row-1">
-          <h2 class="heading heading-sm main-footer__heading-sm">
-            <span>Social</span>
-          </h2>
-          <div class="main-footer__social-cont">
-            <a target="_blank" rel="noreferrer" href="#">
-              <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="#">
-              <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="#">
-              <img class="main-footer__icon" src="./assets/png/twitter-ico.png" alt="icon" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="#">
-              <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="icon" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="#">
-              <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="icon" />
-            </a>
-          </div>
-        </div>
-        <div class="main-footer__row main-footer__row-2">
-          <h4 class="heading heading-sm text-lt">Goswami Sahil</h4>
-          <p class="main-footer__short-desc">
-            "Goswami Sahil is an innovative and skilled web developer with full-stack expertise. He’s detail-oriented,
-            responsive, and passionate about delivering efficient, user-focused solutions."
-          </p>
-        </div>
-      </div>
+        </header>
 
-      <div class="main-footer__lower">
-        &copy; Copyright 2021. Made by
-        <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">Ram Maheshwari</a>
-      </div>
-    </div>
-  </footer>
-  <script src="./index.js"></script>
-  <script>
-    let slideIndex = 0;
+        <!-- Hero Section -->
+        <section
+            class="relative overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-16"
+        >
+            <div
+                class="pointer-events-none absolute -right-40 -top-32 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+            ></div>
+            <div
+                class="pointer-events-none absolute -left-40 bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl"
+            ></div>
 
-    function showSlide(index) {
-      const slides = document.querySelectorAll('.project-details__showcase-img-cont');
-      if (index >= slides.length) slideIndex = 0;
-      if (index < 0) slideIndex = slides.length - 1;
+            <div
+                class="relative z-10 mx-auto flex max-w-5xl flex-col gap-6 px-4 md:flex-row md:items-center"
+            >
+                <div class="md:w-3/5">
+                    <p
+                        class="text-xs font-semibold uppercase tracking-[0.35em] text-primary"
+                    >
+                        Case Study
+                    </p>
+                    <h1
+                        class="mt-4 font-heading text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl md:text-5xl"
+                    >
+                        COLLEGE WEBSITE
+                    </h1>
+                    <p
+                        class="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base"
+                    >
+                        A college website built with HTML, CSS, PHP, and
+                        JavaScript. Students can enter their UID to access fee
+                        details and related information, improving transparency
+                        and accessibility.
+                    </p>
+                    <div class="mt-6">
+                        <a
+                            href="https://sahilgoswami5180.github.io/my_college/"
+                            target="_blank"
+                            class="inline-flex items-center rounded-full bg-primary px-6 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-primaryDark"
+                        >
+                            Live Link
+                        </a>
+                    </div>
+                </div>
 
-      // Hide all slides
-      slides.forEach(slide => slide.style.display = 'none');
+                <div class="md:w-2/5 md:pl-6">
+                    <div
+                        class="rounded-2xl border border-slate-800 bg-slate-950/70 p-4 text-sm text-slate-300 shadow-lg backdrop-blur"
+                    >
+                        <p
+                            class="text-[11px] uppercase tracking-[0.2em] text-slate-500"
+                        >
+                            Role & Focus
+                        </p>
+                        <p class="mt-2">
+                            Front-end and basic back-end for a college portal
+                            that allows students to quickly check fee details
+                            through a simple UID-based lookup.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Show the current slide
-      slides[slideIndex].style.display = 'block';
-    }
+        <!-- Project Details -->
+        <section class="project-details py-16">
+            <div class="main-container mx-auto max-w-5xl px-4">
+                <div
+                    class="project-details__content grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1.7fr)]"
+                >
+                    <!-- Slider Card -->
+                    <div
+                        class="relative rounded-3xl border border-slate-800 bg-slate-950/70 p-4 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur"
+                    >
+                        <div
+                            class="project-details__showcase-img-slider relative w-full overflow-hidden rounded-2xl bg-slate-900/80"
+                        >
+                            <div class="project-details__showcase-img-cont">
+                                <img
+                                    src="./assets/img/portfolio/college/clg11.png"
+                                    alt="College Website Screenshot 1"
+                                    class="project-details__showcase-img block w-full object-cover"
+                                />
+                            </div>
+                            <div class="project-details__showcase-img-cont">
+                                <img
+                                    src="./assets/img/portfolio/college/clg2.png"
+                                    alt="College Website Screenshot 2"
+                                    class="project-details__showcase-img block w-full object-cover"
+                                />
+                            </div>
+                            <div class="project-details__showcase-img-cont">
+                                <img
+                                    src="./assets/img/portfolio/college/clg3.png"
+                                    alt="College Website Screenshot 3"
+                                    class="project-details__showcase-img block w-full object-cover"
+                                />
+                            </div>
 
-    function moveSlide(n) {
-      showSlide(slideIndex += n);
-    }
+                            <!-- Navigation Arrows -->
+                            <button
+                                class="prev absolute left-3 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full bg-black/50 px-3 py-2 text-xl text-white backdrop-blur transition hover:bg-black/80"
+                                onclick="moveSlide(-1)"
+                                aria-label="Previous screenshot"
+                            >
+                                &#10094;
+                            </button>
+                            <button
+                                class="next absolute right-3 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full bg-black/50 px-3 py-2 text-xl text-white backdrop-blur transition hover:bg-black/80"
+                                onclick="moveSlide(1)"
+                                aria-label="Next screenshot"
+                            >
+                                &#10095;
+                            </button>
+                        </div>
 
-    // Initialize the slider by showing the first image
-    showSlide(slideIndex);
+                        <p class="mt-4 text-xs text-slate-400">
+                            (Screens show the homepage, information sections,
+                            and UID-based fee lookup.)
+                        </p>
+                    </div>
 
-  </script>
-</body>
+                    <!-- Text / Details -->
+                    <div
+                        class="project-details__content-main space-y-8 rounded-3xl border border-slate-800 bg-slate-950/70 p-6 shadow-[0_0_40px_rgba(15,23,42,0.7)] backdrop-blur"
+                    >
+                        <!-- Overview -->
+                        <div class="project-details__desc space-y-3">
+                            <h3
+                                class="project-details__content-title font-heading text-xl font-semibold text-slate-50"
+                            >
+                                Project Overview
+                            </h3>
+                            <p
+                                class="project-details__desc-para text-sm leading-relaxed text-slate-300"
+                            >
+                                The college website is built using HTML, CSS,
+                                PHP and JavaScript. It serves as a simple portal
+                                where students can browse basic college
+                                information and use their UID to check
+                                fee-related details.
+                            </p>
+                            <p
+                                class="project-details__desc-para text-sm leading-relaxed text-slate-300"
+                            >
+                                The focus is on a clean layout and a
+                                straightforward flow so that students and staff
+                                can quickly access the information they need
+                                without unnecessary complexity.
+                            </p>
+                        </div>
 
+                        <!-- Tools Used -->
+                        <div class="project-details__tools-used space-y-3">
+                            <h3
+                                class="project-details__content-title font-heading text-xl font-semibold text-slate-50"
+                            >
+                                Tools Used
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-100"
+                                    >HTML</span
+                                >
+                                <span
+                                    class="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-100"
+                                    >CSS</span
+                                >
+                                <span
+                                    class="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-100"
+                                    >JavaScript</span
+                                >
+                                <span
+                                    class="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-100"
+                                    >PHP</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Live link -->
+                        <div class="project-details__links space-y-3">
+                            <h3
+                                class="project-details__content-title font-heading text-xl font-semibold text-slate-50"
+                            >
+                                See Live
+                            </h3>
+                            <a
+                                href="https://sahilgoswami5180.github.io/my_college/"
+                                target="_blank"
+                                class="inline-flex items-center rounded-full bg-primary px-6 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-primaryDark"
+                            >
+                                Live Link
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer
+            class="main-footer border-t border-slate-800 bg-slate-950 py-10"
+        >
+            <div class="main-container mx-auto max-w-5xl px-4">
+                <div
+                    class="main-footer__upper flex flex-col gap-8 border-b border-slate-800 pb-8 md:flex-row md:items-start md:justify-between"
+                >
+                    <div class="main-footer__row main-footer__row-1 space-y-3">
+                        <h2
+                            class="heading heading-sm main-footer__heading-sm text-sm font-semibold uppercase tracking-[0.3em]"
+                        >
+                            <span>Social</span>
+                        </h2>
+                        <div
+                            class="main-footer__social-cont flex flex-wrap gap-3"
+                        >
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="#"
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 hover:border-primary hover:bg-primary/10"
+                            >
+                                <img
+                                    class="main-footer__icon h-5 w-5"
+                                    src="./assets/png/linkedin-ico.png"
+                                    alt="LinkedIn icon"
+                                />
+                            </a>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="#"
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 hover:border-primary hover:bg-primary/10"
+                            >
+                                <img
+                                    class="main-footer__icon h-5 w-5"
+                                    src="./assets/png/github-ico.png"
+                                    alt="GitHub icon"
+                                />
+                            </a>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="#"
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 hover:border-primary hover:bg-primary/10"
+                            >
+                                <img
+                                    class="main-footer__icon h-5 w-5"
+                                    src="./assets/png/twitter-ico.png"
+                                    alt="Twitter icon"
+                                />
+                            </a>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="#"
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 hover:border-primary hover:bg-primary/10"
+                            >
+                                <img
+                                    class="main-footer__icon h-5 w-5"
+                                    src="./assets/png/yt-ico.png"
+                                    alt="YouTube icon"
+                                />
+                            </a>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="#"
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 hover:border-primary hover:bg-primary/10"
+                            >
+                                <img
+                                    class="main-footer__icon main-footer__icon--mr-none h-5 w-5"
+                                    src="./assets/png/insta-ico.png"
+                                    alt="Instagram icon"
+                                />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="main-footer__row main-footer__row-2 max-w-xl space-y-3"
+                    >
+                        <h4
+                            class="heading heading-sm text-lt font-heading text-lg font-semibold"
+                        >
+                            Goswami Sahil
+                        </h4>
+                        <p
+                            class="main-footer__short-desc text-sm leading-relaxed text-slate-300"
+                        >
+                            Goswami Sahil is an innovative and skilled web
+                            developer with full-stack expertise.
+                            Detail-oriented, responsive, and passionate about
+                            delivering efficient, user-focused solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="main-footer__lower pt-6 text-center text-xs text-slate-500"
+                >
+                    &copy; 2021–<span id="yearSpan"></span>. Made by
+                    <span class="text-primary">Goswami Sahil</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Slider Script -->
+        <script>
+            let slideIndex = 0
+
+            function showSlide(index) {
+                const slides = document.querySelectorAll(
+                    '.project-details__showcase-img-cont'
+                )
+                if (!slides.length) return
+
+                if (index >= slides.length) slideIndex = 0
+                if (index < 0) slideIndex = slides.length - 1
+
+                slides.forEach((slide) => (slide.style.display = 'none'))
+                slides[slideIndex].style.display = 'block'
+            }
+
+            function moveSlide(n) {
+                showSlide((slideIndex += n))
+            }
+
+            // Initialize the slider by showing the first image
+            showSlide(slideIndex)
+
+            // Footer year
+            const spanYear = document.getElementById('yearSpan')
+            if (spanYear) {
+                spanYear.textContent = new Date().getFullYear()
+            }
+        </script>
+    </body>
 </html>
